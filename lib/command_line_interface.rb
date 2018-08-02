@@ -5,7 +5,9 @@ class CommandLineInterface
 	end
 
 	def greet
-		puts "Welcome to Trending with Trump! Select a number to continue."
+		puts "Welcome to Trending with Trump!"
+		puts "You can search all of President Trump's July 2018 Tweets."
+		puts "Select a number to continue:"
 		gets_user_input
 	end
 
@@ -26,13 +28,23 @@ class CommandLineInterface
 		elsif user_input == 5
 			search_by_word
 		else
-			"Error! Please make your selection from the list."
+			puts "Error! Please make your selection from the list."
+
 		end		
+	end
+
+	def clean(input)
+		input do |i|
+			display_message(i.content)
+			puts i.post_time
+			puts i.retweet_count "Retweets"
+			puts i.favorite_count "Favorites"
+		end
 	end
 
 	def most_retweeted
 		x = TrumpTweet.maximum("retweet_count")
-		p TrumpTweet.find_by(retweet_count: x)
+		clean(TrumpTweet.find_by(retweet_count: x))
 	end
 
 	def most_favorited
@@ -44,45 +56,57 @@ class CommandLineInterface
 		p TrumpTweet.group(:category_name).order('count_id DESC').limit(5).count(:id)
 	end
 
+	def display_message(message)
+		puts
+		puts message
+	end
+
+	def cleanup(input)
+		input.each do |x|
+			display_message(x.content)
+			puts x.post_time
+		end
+	end
+
 	def return_topic
 		puts "Select a topic by number to see the Tweets related to it."
-		puts "1) Election"
-		puts "2) Travel"
-		puts "3) Economy"
-		puts "4) Border Security/Immigration"
-		puts "5) Collusion/Investigation"
-		puts "6) Foreign Relations"
-		puts "7) Current Events"
-		puts "8) News/Media Coverage"
-		puts "9) Trump Administration"
-		puts "10) Random Words of Kindness"
-		puts "11) Make America Great Again"
-		puts "12) Guns"
+		puts "1) Election 🗳"
+		puts "2) Travel ✈️"
+		puts "3) Economy 💵"
+		puts "4) Border Security/Immigration 🗽"
+		puts "5) Collusion/Investigation 🔍"
+		puts "6) Foreign Relations 🌎"
+		puts "7) Current Events 📰"
+		puts "8) News/Media Coverage 📺"
+		puts "9) Trump Administration 📝"
+		puts "10) Random Words of Kindness 😍"
+		puts "11) 🇺🇸  Make 🇺🇸  America 🇺🇸  Great 🇺🇸  Again 🇺🇸"
+		puts "12) Guns 🔫"
 		user_input = gets.chomp.to_i
 			if user_input == 1
-				p TrumpTweet.where(category_name: "election")
+				cleanup(TrumpTweet.where(category_name: "election"))
 			elsif user_input == 2
-				p TrumpTweet.where(category_name: "travel")
+				cleanup(TrumpTweet.where(category_name: "travel"))
 			elsif user_input == 3
-				p TrumpTweet.where(category_name: "economy")
+				cleanup(TrumpTweet.where(category_name: "economy"))
 			elsif user_input == 4
-				p TrumpTweet.where(category_name: "border_security")
+				cleanup(TrumpTweet.where(category_name: "border_security"))
 			elsif user_input == 5
-				p TrumpTweet.where(category_name: "collusion ")
+				cleanup(TrumpTweet.where(category_name: "collusion "))
 			elsif user_input == 6
-				p TrumpTweet.where(category_name: "foreign_relations ")
+				cleanup(TrumpTweet.where(category_name: "foreign_relations "))
 			elsif user_input == 7
-				p TrumpTweet.where(category_name: "current_events")
+				cleanup(TrumpTweet.where(category_name: "current_events"))
 			elsif user_input == 8
-				p TrumpTweet.where(category_name: "news")
+				cleanup(TrumpTweet.where(category_name: "news"))
 			elsif user_input == 9
-				p TrumpTweet.where(category_name: "trump_admin")
+				cleanup(TrumpTweet.where(category_name: "trump_admin "))
 			elsif user_input == 10
-				p TrumpTweet.where(category_name: "random_kindness")
+				cleanup(TrumpTweet.where(category_name: "random_kindness"))
 			elsif user_input == 11
-				p TrumpTweet.where(category_name: "make_america_great_again")
+				cleanup(TrumpTweet.where(category_name: "make_america_great_again"))
 			elsif user_input == 12
-				p TrumpTweet.where(category_name: "guns")
+				cleanup(TrumpTweet.where(category_name: "guns"))
 			else
 				puts "Please select from the available options."
 			end
