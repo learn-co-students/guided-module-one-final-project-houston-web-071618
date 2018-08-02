@@ -33,23 +33,20 @@ class CommandLineInterface
 		end		
 	end
 
-	def clean(input)
-		input do |i|
-			display_message(i.content)
-			puts i.post_time
-			puts i.retweet_count "Retweets"
-			puts i.favorite_count "Favorites"
-		end
-	end
-
 	def most_retweeted
 		x = TrumpTweet.maximum("retweet_count")
-		clean(TrumpTweet.find_by(retweet_count: x))
+		x = TrumpTweet.find_by(retweet_count: x)
+		puts "Tweet: #{x.content} "
+		puts "Date & Time: #{x.post_time}"
+		puts "Retweet Count: #{x.retweet_count}"
 	end
 
 	def most_favorited
 		x = TrumpTweet.maximum("favorite_count")
-		p TrumpTweet.find_by(favorite_count: x)
+		x = TrumpTweet.find_by(favorite_count: x)
+		puts "Tweet: #{x.content} "
+		puts "Date & Time: #{x.post_time}"
+		puts "Favorite Count: #{x.favorite_count}"
 	end
 
 	def most_trending
