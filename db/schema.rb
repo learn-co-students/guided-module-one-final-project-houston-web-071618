@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20180801191453) do
     t.text     "content"
     t.string   "category_name"
     t.string   "subcategory_name"
+    # t.belongs_to "topic"
     t.datetime "post_time"
     t.integer  "retweet_count"
     t.integer  "favorite_count"
