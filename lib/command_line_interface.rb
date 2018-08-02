@@ -1,4 +1,4 @@
-class CommandLineInterface < ActiveRecord::Base
+class CommandLineInterface 
 
 	def initialize
 		@greet = greet
@@ -15,28 +15,28 @@ class CommandLineInterface < ActiveRecord::Base
 		puts "3) Return most trending topic"
 		puts "4) Return all tweets for a select topic"
 		puts "5) Search tweets by word"
-		user_input = gets.chomp
-			if user_input == 1
-				most_retweeted
-			elsif user_input == 2
-				most_favorited
-			elsif user_input == 3
-				most_trending
-			elsif user_input == 4
-				return_topic
-			elsif user_input == 5
-				search_by_word
-			else
-				"Error! Please make your selection from the list."
-			end		
+		user_input = gets.chomp.to_i
+		if user_input == 1
+			most_retweeted
+		elsif user_input == 2
+			most_favorited
+		elsif user_input == 3
+			most_trending
+		elsif user_input == 4
+			return_topic
+		elsif user_input == 5
+			search_by_word
+		else
+			"Error! Please make your selection from the list."
+		end		
 	end
 
 	def most_retweeted
-		TrumpTweet.maximum("retweet_count")
+		puts TrumpTweet.maximum("retweet_count")
 	end
 
 	def most_favorited
-		TrumpTweet.maximum("favorite_count")
+		puts TrumpTweet.maximum("favorite_count")
 	end
 
 	def most_trending
