@@ -18,6 +18,7 @@ Users may select one of four options to sort through all of Donald Trump's tweet
 The tweets were retrieved from http://www.trumptwitterarchive.com/ by CSV. 
 
 
+ruby bin/run.rb
 
 
 

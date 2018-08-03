@@ -25,8 +25,6 @@ class CommandLineInterface
 			most_trending
 		elsif user_input == 4
 			return_topic
-		elsif user_input == 5
-			search_by_word
 		else
 			puts "Error! Please make your selection from the list."
 
@@ -70,7 +68,7 @@ class CommandLineInterface
 		puts "1) Election 🗳"
 		puts "2) Travel ✈️"
 		puts "3) Economy 💵"
-		puts "4) Border Security/Immigration 🗽"
+		puts "4) Border Security/Immi gration 🗽"
 		puts "5) Collusion/Investigation 🔍"
 		puts "6) Foreign Relations 🌎"
 		puts "7) Current Events 📰"
