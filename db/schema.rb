@@ -10,36 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180802214223) do
+ActiveRecord::Schema.define(version: 20180801143911) do
 
   create_table "battles", force: :cascade do |t|
-    t.boolean  "hero_win?"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "did_hero_win"
     t.integer  "hero_id"
     t.integer  "villain_id"
+    t.string   "name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "heros", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "power_level"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "villains", force: :cascade do |t|
     t.string   "name"
-    t.string   "weapon"
     t.integer  "power_level"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-  end
-
-  create_table "weapons", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "power_level"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "hero_id"
   end
 
 end

@@ -7,19 +7,24 @@ require "pry"
 start_CLI = CLI.new()
 
 start_CLI.opening_greeting
+puts "++++++++++++++++++++++++++++++++++++++++++++"
 start_CLI.select_your_hero
+puts "++++++++++++++++++++++++++++++++++++++++++++"
 selected_hero = start_CLI.user_hero
 start_CLI.hero_check(selected_hero)
 sleep(1.seconds)
-start_CLI.select_a_weapon
-selected_weapon = start_CLI.user_weapon
-start_CLI.weapon_check(selected_weapon)
+puts "++++++++++++++++++++++++++++++++++++++++++++"
+
 sleep(1.seconds)
 start_CLI.select_a_villain
+puts "++++++++++++++++++++++++++++++++++++++++++++"
 selected_villain = start_CLI.user_villain
 start_CLI.check_villain(selected_villain)
 sleep(1.second)
-# start_CLI.start_battle
+start_fight = Battle.new()
+hero = start_fight.add_hero_to_battle(selected_hero)
+villain = start_fight.add_villain_to_battle(selected_villain)
+start_fight.fight(hero, villain)
 
 # first_fight = Battle.new(Hero.find_by(name: "Luke Skywalker"), Vallian.find_by(name: "Darth Vader"))
 

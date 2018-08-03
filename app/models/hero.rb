@@ -1,6 +1,6 @@
 class Hero < ActiveRecord::Base
-  has_one :weapon
   has_many :battles
+  has_many :villains, through: :battles
 
   # attr_accessor :name
 

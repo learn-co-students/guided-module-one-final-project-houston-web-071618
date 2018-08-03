@@ -3,31 +3,33 @@
 # - battle class will have records of the results of all fights
 
 class Battle < ActiveRecord::Base
-  has_many :heros
-  has_many :villains
-  attr_accessor :hero, :villain
+  belongs_to :hero
+  belongs_to :villain
 
-  def initalize(hero, villain)
-    @hero = hero
-    @villain = villain
+  my_hero = def add_hero_to_battle(hero)
+    Hero.find_by(name: hero)
   end
 
-  def fight
-
-    #return a boolean as result of the fight
-    hero.weapons.power_level > villain.power_level
+  my_villain = def add_villain_to_battle(villain)
+    Villain.find_by(name: villain)
   end
 
-  def save_fights(hero_id, villain_id)
-    Battle.create(hero_win?: fight, hero_id: hero_id, villain_id: villain_id)
+  fight_result = def fight(my_hero, my_villain)
+    my_hero.power_level > my_villain.power_level
   end
 
-  def result_of_fight
+  binding.pry
+
+  # def save_fights(hero, villain, fight_result)
+  #   Battle.create(did_hero_win: fight_result, villain_id: villain, hero_id: hero)
+  # end
+
+  def result_of_fight_message
     #if hero wins
-    if fight
-      print "Yoda: #{hero.name}, you won! Now, go forth and fight again if you have the courage. You might not be as lucky next time."
+    if fight_result
+      print "Yoda: #{my_hero}, you won! Now, go forth and fight again if you have the courage. You might not be as lucky next time."
     else
-      print "Yoda: #{hero.name}, you are dead meat... So sorry. Try again on your next life?"
+      print "Yoda: #{my_hero}, you are dead meat... So sorry. Try again on your next life?"
     end
   end
 end
