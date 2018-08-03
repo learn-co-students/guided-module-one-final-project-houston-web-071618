@@ -5,6 +5,7 @@ class CommandLineInterface
 	end
 
 	def greet
+		puts "**********************************************************"
 		puts "Welcome to Trending with Trump!"
 		puts "You can search all of President Trump's July 2018 Tweets."
 		puts "Select a number to continue:"
@@ -15,7 +16,7 @@ class CommandLineInterface
 		puts "1) Find the most retweeted tweet"
 		puts "2) Find the most favorited tweet"
 		puts "3) Return 5 most trending topics"
-		puts "4) Return all tweets for a select topic"
+		puts "4) Return all tweets for a selected topic"
 		user_input = gets.chomp.to_i
 		if user_input == 1
 			most_retweeted
@@ -36,6 +37,7 @@ class CommandLineInterface
 		puts "Tweet: #{x.content} "
 		puts "Date & Time: #{x.post_time}"
 		puts "Retweet Count: #{x.retweet_count}"
+		greet
 	end
 
 	def most_favorited
@@ -44,10 +46,12 @@ class CommandLineInterface
 		puts "Tweet: #{x.content} "
 		puts "Date & Time: #{x.post_time}"
 		puts "Favorite Count: #{x.favorite_count}"
+		greet
 	end
 
 	def most_trending
 		p TrumpTweet.group(:category_name).order('count_id DESC').limit(5).count(:id)
+		greet
 	end
 
 	def display_message(message)
@@ -104,6 +108,7 @@ class CommandLineInterface
 			else
 				puts "Please select from the available options."
 			end
+			greet
 	end
 
 
