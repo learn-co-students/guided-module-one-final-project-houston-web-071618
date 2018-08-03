@@ -1,3 +1,29 @@
+## Trending with Trump was developed by Erica Lehotzky & Kelly Lwakatare at Flatiron School in Houston. 
+
+Users may select one of four options to sort through all of Donald Trump's tweets throughout the month of July 2018. The following options may be selected:
+
+
+1) Find the **most retweeted** tweet
+      This method returns Donald Trump's most retweeted tweet during July 2018.
+
+2) Find the **most favorited** tweet
+      This method returns Donald Trump's most favorited tweet during July 2018.
+
+3) Return **5 most trending topic**
+      This method returns the top 5 most tweeted topics by Donald Trump along with the number of tweets for each topic in a key value pair.
+
+4) Return all tweets for a **select topic**
+      This method allows the user to select from a number of topics and pull all tweets made by Donald Trump related to that topic from July 2018.
+
+The tweets were retrieved from http://www.trumptwitterarchive.com/ by CSV. 
+
+
+ruby bin/run.rb
+
+
+
+
+
 # Module One Project 
 
 Congratulations, you're at the end of module one! You've worked crazy hard to get here and have learned a ton.
