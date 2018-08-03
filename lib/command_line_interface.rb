@@ -14,7 +14,7 @@ class CommandLineInterface
 	def gets_user_input
 		puts "1) Find the most retweeted tweet"
 		puts "2) Find the most favorited tweet"
-		puts "3) Return 5 most trending topic"
+		puts "3) Return 5 most trending topics"
 		puts "4) Return all tweets for a select topic"
 		user_input = gets.chomp.to_i
 		if user_input == 1
@@ -27,7 +27,6 @@ class CommandLineInterface
 			return_topic
 		else
 			puts "Error! Please make your selection from the list."
-
 		end		
 	end
 
