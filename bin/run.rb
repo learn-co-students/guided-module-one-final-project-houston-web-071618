@@ -24,7 +24,8 @@ sleep(1.second)
 start_fight = Battle.new()
 hero = start_fight.add_hero_to_battle(selected_hero)
 villain = start_fight.add_villain_to_battle(selected_villain)
-start_fight.fight(hero, villain)
+fight_result = start_fight.fight(hero, villain)
+start_fight.result_of_fight_message(fight_result, selected_hero)
 
 # first_fight = Battle.new(Hero.find_by(name: "Luke Skywalker"), Vallian.find_by(name: "Darth Vader"))
 

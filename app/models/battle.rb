@@ -14,22 +14,20 @@ class Battle < ActiveRecord::Base
     Villain.find_by(name: villain)
   end
 
-  fight_result = def fight(my_hero, my_villain)
+  def fight(my_hero, my_villain)
     my_hero.power_level > my_villain.power_level
   end
 
-  binding.pry
+  def save_fights(hero, villain, fight_result)
+    Battle.create(did_hero_win: fight_result, villain_id: villain, hero_id: hero)
+  end
 
-  # def save_fights(hero, villain, fight_result)
-  #   Battle.create(did_hero_win: fight_result, villain_id: villain, hero_id: hero)
-  # end
-
-  def result_of_fight_message
+  def result_of_fight_message(fight_result, my_hero)
     #if hero wins
     if fight_result
       print "Yoda: #{my_hero}, you won! Now, go forth and fight again if you have the courage. You might not be as lucky next time."
     else
-      print "Yoda: #{my_hero}, you are dead meat... So sorry. Try again on your next life?"
+      print "Yoda: #{my_hero}, dead meat you are... So sorry. Next life you try...?"
     end
   end
 end

@@ -1,19 +1,19 @@
+class Test
+  def fight
+    true
+  end
 
-def which_hero(hero_number)
-  #find out which hero the user selected
-
-  case hero_number
-  when 1
-    my_hero = "Luke Skywalker"
-  when 2
-    my_hero = "Yoda"
-  when 3
-    my_hero = "C-3PO"
-  when 4
-    my_hero = "Obi-Wan Kenobi"
-  else
-    my_hero = "Chewbacca"
+  def result_of_fight_message
+    #if hero wins
+    if fight
+      print "Yoda: , you won! Now, go forth and fight again if you have the courage. You might not be as lucky next time."
+    else
+      print "Yoda: , you are dead meat... So sorry. Try again on your next life?"
+    end
   end
 end
 
-p which_hero(3)
+test1 = Test.new()
+# p test1.fight
+
+# test1.result_of_fight_message
