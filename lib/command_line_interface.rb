@@ -108,7 +108,7 @@ class CommandLineInterface
 			else
 				puts "Please select from the available options."
 			end
-			greet
+			greet 
 	end
 
 
