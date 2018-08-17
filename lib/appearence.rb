@@ -1,6 +1,6 @@
 class Appearence < ActiveRecord::Base 
     belongs_to :movie
-    belongs_to :actor 
+    belongs_to :actor
 end 
 
     
